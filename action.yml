@@ -1,4 +1,4 @@
-name: leakwatch
+name: Leakwatch Git Secret Scanner
 description: Fail the build if a secret was ever committed to this repo's git history.
 branding:
   icon: shield
