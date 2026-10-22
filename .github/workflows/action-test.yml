@@ -1,0 +1,13 @@
+name: action-test
+on: workflow_dispatch
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./
+        with:
+          ignore-path: "tests/*"
+          badge: badge.svg
