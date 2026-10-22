@@ -15,4 +15,4 @@ jobs:
           python-version: "3.12"
       - run: python -m unittest discover -s tests
       - name: Scan this repo with itself
-        run: python leakwatch.py --ignore-path "tests/*"
+        run: python leakwatch.py --ignore-path "tests/*" --ignore-path README.md

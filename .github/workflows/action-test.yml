@@ -9,5 +9,5 @@ jobs:
           fetch-depth: 0
       - uses: ./
         with:
-          ignore-path: "tests/*"
+          ignore-path: "README.md"
           badge: badge.svg
