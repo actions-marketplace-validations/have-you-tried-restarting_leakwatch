@@ -19,7 +19,7 @@ You committed a key, then "removed" it:
 ```text
 $ git log --oneline
 b3f9a21 oops, remove the key
-e805200 add deploy script
+e805200 add deploy script 
 ```
 
 ```python
