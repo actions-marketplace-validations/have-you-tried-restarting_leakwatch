@@ -84,7 +84,7 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4 
         with:
           fetch-depth: 0        # needed so the whole history is scanned
       - uses: have-you-tried-restarting/leakwatch@v1
