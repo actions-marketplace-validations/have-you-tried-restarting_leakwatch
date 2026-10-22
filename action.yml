@@ -1,0 +1,27 @@
+name: leakwatch
+description: Fail the build if a secret was ever committed to this repo's git history.
+branding:
+  icon: shield
+  color: red
+inputs:
+  ignore-path:
+    description: Glob of files to skip (e.g. "tests/*"). Optional.
+    default: ""
+  badge:
+    description: Write an SVG status badge to this path. Optional.
+    default: ""
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+    - shell: bash
+      env:
+        IGNORE: ${{ inputs.ignore-path }}
+        BADGE: ${{ inputs.badge }}
+      run: |
+        args=()
+        [ -n "$IGNORE" ] && args+=(--ignore-path "$IGNORE")
+        [ -n "$BADGE" ] && args+=(--badge "$BADGE")
+        python "${{ github.action_path }}/leakwatch.py" "${args[@]}" "$GITHUB_WORKSPACE"
